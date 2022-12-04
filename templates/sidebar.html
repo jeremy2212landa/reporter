@@ -1,0 +1,49 @@
+<!-- [ navigation menu ] start -->
+<nav class="pcoded-navbar">
+    <div class="navbar-wrapper">
+        <div class="navbar-brand header-logo">
+            <a href="/" class="b-brand">
+                <div class="b-bg">
+                    <i class="feather icon-layers"></i>
+                </div>
+                <span class="b-title">Pentest Reporter</span>
+            </a>
+            <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
+        </div>
+        <div class="navbar-content scroll-div">
+            <ul class="nav pcoded-inner-navbar">
+                <li data-username="dashboard projects" class="nav-item {% if 'index' in segment %} active {% endif %}">
+                    <a href="/" class="nav-link "><span class="pcoded-micon"><i
+                                class="feather icon-target"></i></span><span class="pcoded-mtext">Proyectos</span></a>
+                </li>
+                <li data-username="Compay Page" class="nav-item {% if 'profile' in segment %} active {% endif %}">
+                    <a href="/company" class="nav-link">
+                        <span class="pcoded-micon"><i class="feather icon-briefcase"></i></span>
+                        <span class="pcoded-mtext">Compañia</span></a>
+                </li>
+                <li data-username="Cliente Page" class="nav-item {% if 'profile' in segment %} active {% endif %}">
+                    <a href="/company/customer" class="nav-link">
+                        <span class="pcoded-micon"><i class="feather icon-bookmark"></i></span>
+                        <span class="pcoded-mtext">Cliente</span></a>
+                </li>
+                <li data-username="vulndb Page" class="nav-item {% if 'profile' in segment %} active {% endif %}">
+                    <a href="/vulnerability" class="nav-link">
+                        <span class="pcoded-micon"><i class="feather icon-file-plus"></i></span>
+                        <span class="pcoded-mtext">Base de datos Vuln</span></a>
+                </li>
+                <li data-username="Profile Page" class="nav-item {% if 'profile' in segment %} active {% endif %}">
+                    <a href="/accounts/setting" class="nav-link">
+                        <span class="pcoded-micon"><i class="feather icon-user"></i></span>
+                        <span class="pcoded-mtext">Perfil</span></a>
+                </li>
+                <li data-username="Disabled Menu" class="nav-item">
+                    <a href="{% url 'logout' %}" class="nav-link">
+                        <span class="pcoded-micon"><i class="feather icon-power"></i></span><span
+                            class="pcoded-mtext">Cerrar sesión</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- [ navigation menu ] end -->

@@ -1,0 +1,94 @@
+{% load static %}
+{% include 'Header.html' %}
+{% csrf_token %}
+<!-- [ breadcrumb ] start -->
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/"><i class="feather icon-home"></i></a></li>
+                    <li class="breadcrumb-item"><a href="/accounts/setting"><i class="feather icon-user"></i></a></li>
+                    <li class="breadcrumb-item">Editar <a href="javascript:">{{userform.username.value}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- [ breadcrumb ] end -->
+<div class="col-xl-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>Editar {{userform.username.value}}</h5>
+        </div>
+        <div class="card-body">
+            <form id="validationform" method="POST" , action="" onsubmit="return editprofileform(this);">{% csrf_token %}
+                <div class="form-group row">
+                    <label class="col-12 col-sm-3 col-form-label text-sm-right ">Imagen de Perfil</label>
+                    <div class="col-12 col-sm-8 col-lg-6">
+                        {% if profile.profilepic.url != None %}
+                        <img src="{{profile.profilepic.url}}" class="img-circle" />
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-12 col-sm-3 col-form-label text-sm-right ">Perfil</label>
+                    <div class="col-12 col-sm-8 col-lg-6">
+                        <input class="form-control fileupload" name="profilepic" type="file" accept="image/*" id="formFile">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-12 col-sm-3 col-form-label text-sm-right ">Nombre</label>
+                    <div class="col-12 col-sm-8 col-lg-6">
+                        <input type="text" required="" name="first_name" placeholder="Type something" class="form-control" value="{{userform.first_name.value}}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-12 col-sm-3 col-form-label text-sm-right ">Apellido</label>
+                    <div class="col-12 col-sm-8 col-lg-6">
+                        <input type="text" required="" name="last_name" placeholder="Type something" class="form-control" value="{{userform.last_name.value}}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-12 col-sm-3 col-form-label text-sm-right ">Email</label>
+                    <div class="col-12 col-sm-8 col-lg-6">
+                        <input type="text" required="" name="email" placeholder="Type something" class="form-control" value="{{userform.email.value}}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-12 col-sm-3 col-form-label text-sm-right ">UNombre de usuario</label>
+                    <div class="col-12 col-sm-8 col-lg-6">
+                        <input type="text" required="" name="username" placeholder="Type something" class="form-control" value="{{userform.username.value}}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-12 col-sm-3 col-form-label text-sm-right ">Telefono</label>
+                    <div class="col-12 col-sm-8 col-lg-6">
+                        <input type="text" required="" name="number" placeholder="Type something" class="form-control" value="{{profileform.number.value}}">
+                    </div>
+                </div>
+            
+                <div class="form-group row">
+                    <label class="col-12 col-sm-3 col-form-label text-sm-right ">Compañia</label>
+                    <div class="col-12 col-sm-8 col-lg-6">
+                        <input type="text" required="" name="company" placeholder="Type something" class="form-control" value="{{profileform.company.value}}">
+                    </div>
+                </div>
+                <div class="form-group row text-right">
+                    <div class="col col-sm-10 col-lg-9 offset-sm-1 offset-lg-0">
+                        <input type="submit" class="btn btn-space btn-primary" value="Guardar">
+                        <a href="/company/customer/"><button type="button" class="btn btn-space btn-secondary">Cancelar</button> </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+    <!-- Optional JavaScript -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
+        <script src="{% static "libs/js/main.js" %}"></script>
+    
+</body>
+ 
+</html>

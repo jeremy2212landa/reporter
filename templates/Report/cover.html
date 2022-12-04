@@ -1,0 +1,63 @@
+{% load static %}
+<html>
+<head>
+  <meta charset="utf-8">
+<style>
+    .reporttitlepage{
+      
+      height: 1320px;
+      margin: 50px;
+    }
+   .reporttitle {
+       
+        text-align: center;
+        font-family: Calibri;
+        font-weight: 600;
+        font-size:35px;
+        padding: 30px;
+      }
+    
+   
+    .imagelogo {
+      margin-top: 535px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 200px;
+      height: 200px;
+    }
+ 
+    body {
+        /* The image used */
+        background-image: url("{{settings.BASE_DIR}}/static/2022-11-11_22-27.png");
+      
+        /* Full height */
+        height: 100%;
+      
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+</style>
+
+</head>
+
+<body>
+
+
+<header>
+<div class="reporttitlepage">
+    <!-- HTML Content -->
+<br><br><br><br><br><br><br><br><br><br>
+    <img src="{{project.companyname.img.path}}" class="imagelogo">&nbsp;&nbsp;
+   <p class="reporttitle">{{project.projecttype}} Report Of {{project.name}} For {{project.companyname.name}} </p>
+    <div onload="substitutePdfVariables()">
+      
+   
+</div> 
+<header>
+ 
+
+</body>
+</html>

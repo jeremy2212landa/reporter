@@ -1,0 +1,440 @@
+{% load static %}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{settings.BASE_DIR}}/static/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="{{settings.BASE_DIR}}/static//vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{settings.BASE_DIR}}/static/libs/css/style.css">
+    <link rel="stylesheet" href="{{settings.BASE_DIR}}/static/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="{{settings.BASE_DIR}}/static/vendor/datepicker/tempusdominus-bootstrap-4.css" />
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+        .heading {
+            color: #ffa500;
+            margin: 25px;
+            padding-top: 60px;
+        }
+
+        .paragraph {
+            color: black !important;
+            font-size: 20px;
+            margin: 25px;
+            font-family: 'Open Sans', sans-serif !important;
+        }
+
+        .paragraph2 {
+            color: black !important;
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-family: 'Open Sans', sans-serif !important;
+            margin-right: 25px;
+            margin-left: 25px;
+        }
+
+        img {
+            border: 2px solid black;
+            height: 350px !important;
+            width: 100% !important;
+
+        }
+
+        .projectdetails {
+            background: #2070D1;
+            padding-bottom: 20px;
+            padding-top: 20px;
+
+        }
+
+        .projectdetailshead {
+            color: white;
+            font-size: 50px;
+            margin: 25px;
+        }
+
+        .scopetable {
+            margin: 25px;
+        }
+
+        td,
+        tr {
+            color: black;
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .vulndetails {
+            margin-right: 25px;
+            margin-left: 25px;
+            margin-top: 75px;
+
+        }
+
+        .vulnpages {
+            margin-right: 25px;
+            margin-left: 25px;
+            margin-bottom: 30px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 45px;
+            color: #2070D1;
+
+        }
+
+        .vulnstatus {
+            padding-right: 500px;
+            margin-right: 20px;
+            margin-left: 20px;
+            text-align: left;
+            font-size: 30px;
+            margin-top: 20px;
+        }
+
+        .vulnseverity {
+
+            margin-right: 20px;
+            margin-left: 10px;
+            text-align: right;
+            font-size: 20px;
+        }
+
+        .vulnseverity2 {
+
+            margin-right: 20px;
+            margin-left: 120px;
+            text-align: right;
+            font-size: 20px;
+        }
+
+        .vulntitle {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 20px;
+            margin-right: 25px;
+            margin-left: 25px;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            color: black;
+        }
+
+        .vulntitle2 {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 20px;
+
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            color: black;
+        }
+    </style>
+    <script>
+    window.onload = function() {
+      uris = "{{url}}"
+      var doaminpath = uris.split('/')
+    var doaminurl = doaminpath[0] +"//" +doaminpath[2]
+    var arrayLength = document.getElementsByTagName("img").length
+for (var i = 0; i < arrayLength; i++) {
+    
+ var imagepath = document.getElementsByTagName("img")[i].src;
+image = imagepath.replace(/^file:\/\//i, "")
+document.getElementsByTagName("img")[i].src = doaminurl + image;
+//var strMessage1 = document.getElementById("helloworld").innerHTML =i
+//console.log(strMessage1)
+}
+    //var imagepath = document.getElementsByTagName("img")[0].src
+    //var basepath =  "{{settings.BASE_DIR}}"
+    //console.log(imagepath)
+    //var newpath = "{{settings.BASE_DIR}}" +"assets" + imagepath
+    //image = imagepath.replace(/^file:\/\//i, "")
+    
+    
+    //document.getElementsByTagName("img")[0].src = doaminurl + image;
+    //var strMessage1 = document.getElementById("helloworld").innerHTML =doaminurl ;
+
+
+   
+
+    }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+</head>
+
+<body style="background:white;">
+    <div class="projectdetails">
+        <h1 class="projectdetailshead"> Resumen del proyecto </h1>
+    </div>
+    <h2 class="heading">Resumen Ejecutivo </h2>
+    <p class="paragraph">{{userdetails.company}} se realizó una evaluación de seguridad integral de
+        {{project.companyname.name}} para
+        determinar las vulnerabilidades existentes y establecer el nivel actual de riesgo de seguridad asociado con el
+        entorno y las tecnologías en uso. Esta evaluación aprovechó las pruebas de penetración y las redes sociales,
+        técnicas de ingeniería para proporcionar a la gerencia de {{project.companyname.name}} una comprensión de los
+        riesgos y
+        postura de seguridad de su entorno corporativo.</p>
+
+    <h2 class="heading">Detalles del proyecto </h2>
+    <p class="paragraph"> Este compromiso se llevó a cabo para evaluar la postura de seguridad de los objetivos de alto
+        valor mencionados por
+        nuestro cliente {{project.companyname.name}}. Hemos revisado {{project.name}} {{project.projecttype}} según el
+        marco de las metodologias OWASP</p>
+
+    <h2 class="heading">Alcance</h2>
+    <div class="scopetable">
+        <table class="table">
+            <thead class="bg-blue">
+                <tr>
+                    <th>Alcance</th>
+                    <th>Tipo de alcance</th>
+                    <th>Fecha de inicio</th>
+                    <th>Fecha de finalización</th>
+
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{project.scope}}</td>
+                    <td>{{project.projecttype}}</td>
+                    <td>{{project.startdate}}</td>
+                    <td>{{project.enddate}}</td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <h2 class="heading">Descripción</h2>
+    <p class="paragraph">{{project.description}}
+    <p>
+
+
+
+    <div style="page-break-before:always;">
+        <!--
+    <h2 class="heading">Note</h2>
+    <p class="paragraph">The application forgot password and admin was not consideed in the penetration testing process. Hence the functionalities have been exclded.<p>
+-->
+        <h2 class="heading">Involucrados en el proyecto</h2>
+        <div class="scopetable">
+            <table class="table">
+                <thead class="bg-blue">
+                    <tr class="border-0">
+                        <th class="border-0">Name</th>
+                        <th class="border-0">Email Address</th>
+                        <th class="border-0">Phone</th>
+                        <th class="border-0">Company</th>
+
+                </thead>
+                <tbody>
+                    {% for customers in customer %}
+                    <tr>
+                        <td>{{customers.name}}</td>
+                        <td>{{customers.email}}</td>
+                        <td>{{customers.phoneNumber}}</td>
+                        <td>{{project.companyname.name}}</td>
+
+                    </tr>
+                    {% endfor %}
+                    {% for profiles in profile %}
+                    <td>{{profiles.user.first_name}}</td>
+                    <td>{{profiles.user.email}}</td>
+                    <td>{{profiles.number}}</td>
+                    <td>{{profiles.company}}</td>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+<div style="page-break-before:always;">
+    <div class="projectdetails">
+        <h1 class="projectdetailshead"> Detalles de las vulnerabilidades </h1>
+    </div>
+    <h2 class="heading">Clasificación</h2>
+    <div class="scopetable">
+        <table class="table">
+            <thead class="bg-blue">
+                <tr class="border-0">
+                    <th class="border-0">Sr</th>
+                    <th class="border-0">Nombre</th>
+                    <th class="border-0">Severidad</th>
+                    <th class="border-0">Status</th>
+
+                    </thead>
+                    <tbody>
+                    {% for vulnerabilities in vuln %}
+                    
+                    <tr>
+                        <td>{{ forloop.counter }} </td>
+                        <td>{{vulnerabilities.vulnerabilityname}}</td>
+
+                        {% if vulnerabilities.vulnerabilityseverity == "Critical" %}
+                        <td><button type="button" class="btn text-white" style="background-color:#cc0500;font-weight: bold;" href="">{{vulnerabilities.vulnerabilityseverity}}</button></td>
+
+                        {% elif vulnerabilities.vulnerabilityseverity == "High" %}
+                        <td><button type="button" class="btn text-white" style="background-color:#ff6607;font-weight: bold;" href="">{{vulnerabilities.vulnerabilityseverity}}</button></td>
+
+                            {% elif vulnerabilities.vulnerabilityseverity == "Medium" %}
+                            <td><button type="button" class="btn text-dark" style="background-color:#fff822;font-weight: bold;" href="">{{vulnerabilities.vulnerabilityseverity}}</button></td>
+
+                            {% elif vulnerabilities.vulnerabilityseverity == "Low" %}
+                            <td><button type="button" class="btn text-white" style="background-color:#35c42b;font-weight: bold;" href="">{{vulnerabilities.vulnerabilityseverity}}</button></td>
+
+                            {% elif vulnerabilities.vulnerabilityseverity == "Informational" %}
+                            <td><button type="button" class="btn text-white" style="background-color:#0080ff;font-weight: bold;" href="">{{vulnerabilities.vulnerabilityseverity}}</button></td>
+                            {% endif %}
+
+
+                            {% if vulnerabilities.status == "Vulnerable" %}
+                            <td class="text-danger">{{vulnerabilities.status}}</td>
+
+                            {% elif vulnerabilities.status == "Confirm Fixed" %}
+                            <td class="text-success">{{vulnerabilities.status}}</td>
+
+                            {% endif %}
+
+
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div style="margin:20px;padding:20px;margin-top:100px;">
+                <canvas id="myChart" style="width:100%;max-width:900px;text-align:center;"></canvas>
+            </div>
+
+    </div>
+
+    {% for vulnerabilities in vuln %}
+    <div class="vulndetails" style="page-break-before:always;">
+        <div>
+            <h2 class="vulnpages">{{vulnerabilities.vulnerabilityname}}</h2>
+        </div>
+
+
+        <div>
+
+            {% if vulnerabilities.status == "Vulnerable" %}
+            <span class="vulnstatus text-danger">{{vulnerabilities.status}}</span>
+            {% elif vulnerabilities.status == "Confirm Fixed" %}
+            <span class="vulnstatus text-success">{{vulnerabilities.status}}</span>
+            {% endif %}
+
+
+
+
+            {% if vulnerabilities.vulnerabilityseverity == "Critical" %}
+            <button type="button" class="vulnseverity2 btn text-white" style="background-color:#cc0500;font-weight: bold;" href="">{{vulnerabilities.vulnerabilityseverity}}</button>
+
+            {% elif vulnerabilities.vulnerabilityseverity == "High" %}
+            <button type="button" class="vulnseverity2 btn text-white" style="background-color:#ff6607;font-weight: bold;"  href="">{{vulnerabilities.vulnerabilityseverity}}</button>
+
+            {% elif vulnerabilities.vulnerabilityseverity == "Medium" %}
+            <button type="button" class="vulnseverity2 btn text-dark" style="background-color:#fff822;font-weight: bold;" href="">{{vulnerabilities.vulnerabilityseverity}}</button>
+
+            {% elif vulnerabilities.vulnerabilityseverity == "Low" %}
+            <button type="button" class="vulnseverity2 btn text-white" style="background-color:#35c42b;font-weight: bold;" href="">{{vulnerabilities.vulnerabilityseverity}}</button>
+
+            {% elif vulnerabilities.vulnerabilityseverity == "Informational" %}
+            <button type="button" class="vulnseverity btn text-white" style="background-color:#0080ff;font-weight: bold;" href="">{{vulnerabilities.vulnerabilityseverity}}</button>
+
+            {% endif %}
+
+        </div>
+
+
+
+
+
+        <div>
+
+            <div class="paragraph2"><span class="vulntitle2">CVSS Score - </span> {{vulnerabilities.cvssscore}}<br><span
+                    class="vulntitle2">CVSS Vector - </span>{{vulnerabilities.cvssvector}}</div>
+            <div class="paragraph2"></div>
+        </div>
+
+
+        <h3 class="vulntitle">Descripción</h3>
+        <div class="paragraph2">{{vulnerabilities.vulnerabilitydescription|safe}}</div>
+
+        <h3 class="vulntitle">Evidencia</h3>
+        <div class="paragraph2">{{vulnerabilities.POC|safe}}</div>
+        <h3 class="vulntitle">Solucion</h3>
+        <div class="paragraph2">{{vulnerabilities.vulnerabilitysolution|safe}}</div>
+        <h3 class="vulntitle">Referencias</h3>
+        <div class="paragraph2">{{vulnerabilities.vulnerabilityreferlnk|safe}}</div>
+        <h3 class="vulntitle">Instancias vulnerables</h3>
+        <div class="scopetable">
+            <table class="table">
+                <thead class="bg-blue">
+                    <tr class="border-0">
+                        <th class="border-0">URL</th>
+                        <th class="border-0">Parametro</th>
+
+                </thead>
+                <tbody>
+                    {% for instance in instances %}
+                    {% if instance.vulnerabilityid.id == vulnerabilities.id %}
+                    <tr>
+                        <td>{{instance.URL}}</td>
+                        <td>{{instance.Paramter}}</td>
+
+
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+
+
+    </div>
+    {% endfor %}
+
+
+
+
+    <script>
+        var xValues = ["Critical", "High", "Medium", "Low", "Informational"];
+        var yValues = [{{ ciritcal }}, {{ high }}, {{ medium }}, {{ low }}, {{ info }}];
+        var barColors = ["#cc0500", "#ff6607", "#fff822", "#35c42b", "#0080ff"];
+        Chart.defaults.scale.gridLines.display = false;
+
+
+        new Chart("myChart", {
+            type: "bar",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    backgroundColor: barColors,
+                    data: yValues
+                }]
+            },
+            options: {
+
+                legend: { display: false},
+
+                title: {
+                    display: true,
+                    text: "Clasificacion de las vulnerabilidades"
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            min: 0,
+                        }
+                    }],
+
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+{% load static %}
+{% include 'Header.html' %}
+        {% csrf_token %}
+<!-- [ breadcrumb ] start -->
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/"><i class="feather icon-target"></i></a></li>
+                    <li class="breadcrumb-item"><a href="javascript:">Añadir proyecto</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- [ breadcrumb ] end -->
+<div class="main-body">
+    <div class="page-wrapper">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Añadir nuevo proyecto</h5>
+                </div>
+                <div class="card-block px-0 py-3">
+                    <form id="validationform" method="POST" , action="/project/add">{% csrf_token %}
+                        <div class="form-group row">
+                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Compañia</label>
+                            <div class="col-12 col-sm-8 col-lg-6">
+                                <select class="form-control" id="input-select" data-live-search="true" name="company">
+                                    {% for companies in company %}
+                                    <option>{{companies.name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Nombre del proyeto</label>
+                            <div class="col-12 col-sm-8 col-lg-6">
+        
+                                <input type="text" required="" name="projectname" placeholder="Application Name"
+                                    class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Descripcion del proyecto</label>
+                            <div class="col-12 col-sm-8 col-lg-6">
+        
+                                <input type="tex" required="" name="projectdescription" placeholder="Type something"
+                                    class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Alcance por URL/IP</label>
+                            <div class="col-12 col-sm-8 col-lg-6">
+        
+                                <input type="text" required="" name="scope" placeholder="ejemplo: https://google.com"
+                                    class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Tipo de proyecto</label>
+                            <div class="col-12 col-sm-8 col-lg-6">
+                                <select class="form-control form-select" id="input-select" data-live-search="true" name="projecttype">
+                                    <option>Web Application Penetration Testing</option>
+                                    <option>API Penetration Testing</option>
+                                    <option>Penetration Testing Capa de red </option>
+                                    <option>Wireless Penetration Testing</option>
+                                    <option>Mobile Application Penetration Testing</option>
+                                    <option>Thick Client Application Penetration Testing</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Fecha de inicio</label>
+                            <div class="col-12 col-sm-8 col-lg-6">
+                                <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
+                                    <input type="text" class="form-control datetimepicker-input" name="startname"
+                                        data-target="#datetimepicker4" value="" />
+                                    <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
+                                        <div class="input-group-text"><i class="feather icon-calendar"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-sm-3 col-form-label text-sm-right ">Fecha fin</label>
+                            <div class="col-12 col-sm-8 col-lg-6">
+                                <div class="input-group date" id="datetimepicker5" data-target-input="nearest">
+                                    <input type="text" class="form-control datetimepicker-input" name="enddate"
+                                        data-target="#datetimepicker5" value="" />
+                                    <div class="input-group-append" data-target="#datetimepicker5" data-toggle="datetimepicker">
+                                        <div class="input-group-text"><i class="feather icon-calendar"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row text-right">
+                            <div class="col col-sm-10 col-lg-9 offset-sm-1 offset-lg-0">
+                                <input type="submit" class="btn btn-space btn-primary" value="Submit">
+                                <a href="/"><button type="button" class="btn btn-space btn-secondary">Cancelar</button> </a>
+                            </div>
+                        </div>
+                    </form>
+        
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="page-footer font-small blue">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2022 Copyright:
+        <a href="/"> Reporter. C.A</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+</div>
+<!-- Footer -->
+    <!-- Optional JavaScript -->
+<script src="{% static "vendor/jquery/jquery-3.3.1.min.js" %}"></script>
+<script src="{% static "vendor/datepicker/moment.js" %}"></script>
+<script src="{% static "vendor/datepicker/tempusdominus-bootstrap-4.js" %}"></script>
+<script src="{% static "vendor/datepicker/datepicker.js" %}"></script>
+  
+</body>
+ 
+</html>

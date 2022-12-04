@@ -1,0 +1,17 @@
+asgiref
+backports.zoneinfo
+Django
+django-ckeditor
+django-js-asset
+django-pdfkit
+django-phonenumber-field
+django-phonenumbers
+gunicorn
+pdfkit
+phonenumbers
+Pillow
+PyPDF2
+sqlparse
+typing-extensions
+tzdata
+waitress

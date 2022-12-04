@@ -1,0 +1,77 @@
+{% load static %}
+{% include 'Header.html' %}
+{% csrf_token %}
+<!-- [ breadcrumb ] start -->
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/"><i class="feather icon-home"></i></a></li>
+                    <li class="breadcrumb-item"><a href="/company"><i class="feather icon-briefcase"></i></a></li>
+                    <li class="breadcrumb-item"><a href="/company/add">Añadir compañia</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- [ breadcrumb ] end -->
+<div class="main-body">
+    <div class="page-wrapper">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Añadir Compañia</h5>
+                </div>
+                <div class="card-body">
+                    <form id="validationform" method="POST" , action="/company/add" enctype="multipart/form-data">{% csrf_token %}
+                        <div class="form-group row">
+                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Nombre</label>
+                            <div class="col-12 col-sm-8 col-lg-6">
+                                <input type="text" required="" name="name" placeholder="Type something" class="form-control" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Logo</label>
+                            <div class="col-12 col-sm-8 col-lg-6">
+                                <input class="form-control fileupload" name="image" type="file" id="formFile">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Dirección</label>
+                            <div class="col-12 col-sm-8 col-lg-6">
+                                <textarea required="" name="address" placeholder="Type something" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row text-right">
+                            <div class="col col-sm-10 col-lg-9 offset-sm-1 offset-lg-0">
+                                <button type="submit" class="btn btn-space btn-primary">Submit</button>
+                                <a href="/company/"><button type="button" class="btn btn-space btn-secondary">Cancel</button> </a>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>      
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="page-footer font-small blue">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2022 Copyright:
+        <a href="/"> Reporter. C.A</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+</div>
+<!-- Footer -->
+    <script src="{% static "vendor/jquery/jquery-3.3.1.min.js" %}"></script>
+    <script src="{% static "vendor/bootstrap/js/bootstrap.bundle.js" %}"></script>
+</body>
+ 
+</html>
